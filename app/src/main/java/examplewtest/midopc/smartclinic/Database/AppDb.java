@@ -29,14 +29,13 @@ public class AppDb extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
        db.execSQL("drop table Patients ");
-        onCreate(db);
+       onCreate(db);
 
     }
 
 
 
     //Table Patients insertion
-
     public void insertToPatients(Patient patient){
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues contentValues=new ContentValues();
@@ -51,31 +50,70 @@ public class AppDb extends SQLiteOpenHelper {
 
 
     //Table Patients Retrieve
-
-
-
     public List<Patient> getAllPatientsNames(){
-
         List<Patient>patients=new ArrayList<>();
         SQLiteDatabase db=this.getReadableDatabase();
-        Patient patient=new Patient();
         Cursor cursor=db.rawQuery("select * from Patients",null);
         cursor.moveToFirst();
-        int index=0;
+
         while(cursor.isAfterLast()==false){
+            Patient patient=new Patient();
             patient.setFullName(cursor.getString(cursor.getColumnIndex("full_name")));
             patient.setAge(cursor.getInt(cursor.getColumnIndex("age")));
             patient.setAddress(cursor.getString(cursor.getColumnIndex("address")));
             patient.setGender(cursor.getString(cursor.getColumnIndex("gender")));
             patient.setPhoneNum(cursor.getString(cursor.getColumnIndex("phone_num")));
-            patients.add(0,patient);
+            patients.add(patient);
             cursor.moveToNext();
-            index++;
         }
-
         return patients;
-
     }
+
+
+
+    //Delete all Patients
+    public void deleteAllPatients(){
+        SQLiteDatabase db=this.getReadableDatabase();
+        db.execSQL("delete from Patients");
+    }
+
+    //Delete Patient By Id
+    public void deletePatientByid(int id){
+        SQLiteDatabase db=this.getReadableDatabase();
+        db.execSQL("delete from Patients where id="+Integer.toHexString(id));
+    }
+
+
+    public void updatePatientName(String name,int id){
+        SQLiteDatabase db=this.getWritableDatabase();
+        db.execSQL("update Patients set full_name="+name+"where id = "+id);
+    }
+
+    public void updatePatientAge(int Age,int id){
+        SQLiteDatabase db=this.getWritableDatabase();
+        db.execSQL("update Patients set age="+Age+"where id = "+id);
+    }
+
+
+    public List<Patient> searchPatientByName(String name){
+        List<Patient>patients=new ArrayList<>();
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor cursor=db.rawQuery("select * from Patients where full_name like '"+name+"%",null);
+        cursor.moveToFirst();
+
+        while(cursor.isAfterLast()==false){
+            Patient patient=new Patient();
+            patient.setFullName(cursor.getString(cursor.getColumnIndex("full_name")));
+            patient.setAge(cursor.getInt(cursor.getColumnIndex("age")));
+            patient.setAddress(cursor.getString(cursor.getColumnIndex("address")));
+            patient.setGender(cursor.getString(cursor.getColumnIndex("gender")));
+            patient.setPhoneNum(cursor.getString(cursor.getColumnIndex("phone_num")));
+            patients.add(patient);
+            cursor.moveToNext();
+        }
+        return patients;
+    }
+
 
 
 }
