@@ -83,18 +83,19 @@ public class AppDb extends SQLiteOpenHelper {
         db.execSQL("delete from Patients where id="+Integer.toHexString(id));
     }
 
-
+    //Update patient Name
     public void updatePatientName(String name,int id){
         SQLiteDatabase db=this.getWritableDatabase();
         db.execSQL("update Patients set full_name="+name+"where id = "+id);
     }
 
+    //Update patient Age
     public void updatePatientAge(int Age,int id){
         SQLiteDatabase db=this.getWritableDatabase();
         db.execSQL("update Patients set age="+Age+"where id = "+id);
     }
 
-
+    //Search patient by Name
     public List<Patient> searchPatientByName(String name){
         List<Patient>patients=new ArrayList<>();
         SQLiteDatabase db=this.getReadableDatabase();

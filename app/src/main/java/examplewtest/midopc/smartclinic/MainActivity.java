@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -33,21 +34,11 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
-        final TextView input =(TextView)findViewById(R.id.name);
-
-        final AppDb appDb=new AppDb(this);
 
 
         final RecyclerView list=(RecyclerView)findViewById(R.id.list);
+        list.setLayoutManager(new GridLayoutManager(this,2));
+        list.setAdapter(new ListAdb());
 
 
 
@@ -56,19 +47,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        Button button=(Button)findViewById(R.id.btn);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Patient patient=new Patient();
-                patient.setFullName(input.getText().toString());
-                appDb.insertToPatients(patient);
-                ListAdb listAdb =new ListAdb(getApplicationContext(),appDb.getAllPatientsNames());
-                list.setAdapter(listAdb);
-                list.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
 
-            }
-        });
+
 
 
 
