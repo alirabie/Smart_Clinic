@@ -1,6 +1,7 @@
 package examplewtest.midopc.smartclinic;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,7 +22,13 @@ import examplewtest.midopc.smartclinic.Database.Models.Patient;
  */
 public class ListAdb extends RecyclerView.Adapter<ListAdb.VH> {
 
-     int []pics={R.drawable.add,R.drawable.all,R.drawable.stat};
+    private Context context;
+
+    public ListAdb(Context context) {
+        this.context = context;
+    }
+
+    int []pics={R.drawable.add,R.drawable.all,R.drawable.stat};
      String[]lables={"Add New Patient","Patient History","See All Patients"};
 
 
@@ -43,7 +50,7 @@ public class ListAdb extends RecyclerView.Adapter<ListAdb.VH> {
             @Override
             public void onClick(View v) {
                 if(position==0)
-                    Log.d("gooooooooooooo","Add Patiates");
+                    context.startActivity(new Intent(context.getApplicationContext(),Newpatiant.class));
                 if(position==1)
                     Log.d("gooooooooooooo","all");
                 if(position==2)

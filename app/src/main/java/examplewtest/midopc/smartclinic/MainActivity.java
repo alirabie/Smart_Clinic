@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
         final RecyclerView list=(RecyclerView)findViewById(R.id.list);
         list.setLayoutManager(new GridLayoutManager(this,2));
-        list.setAdapter(new ListAdb());
+        list.setAdapter(new ListAdb(this));
 
 
 
