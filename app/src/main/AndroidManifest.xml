@@ -19,9 +19,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Newpatiant"
+            android:name=".Activites.Newpatiant"
             android:label="@string/title_activity_newpatiant"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Activites.Patiants" />
+        <activity android:name=".PatiantProfile"></activity>
     </application>
 
 </manifest>

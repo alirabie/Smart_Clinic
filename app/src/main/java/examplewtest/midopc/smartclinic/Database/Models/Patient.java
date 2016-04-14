@@ -4,14 +4,22 @@ package examplewtest.midopc.smartclinic.Database.Models;
  * Created by Mido PC on 4/12/2016.
  */
 public class Patient {
-
+    private int id;
     private String fullName;
     private int age;
-    private String gender;
+    private String Case;
     private String address;
     private String phoneNum;
+    private String date;
 
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
 
     public int getAge() {
         return age;
@@ -21,12 +29,12 @@ public class Patient {
         this.age = age;
     }
 
-    public String getGender() {
-        return gender;
+    public String getCase() {
+        return Case;
     }
 
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setCase(String gender) {
+        this.Case = gender;
     }
 
     public String getAddress() {
@@ -53,11 +61,11 @@ public class Patient {
         this.fullName = fullName;
     }
 
+    public int getId() {
+        return id;
+    }
 
-
-
-
-
-
-
+    public void setId(int id) {
+        this.id = id;
+    }
 }

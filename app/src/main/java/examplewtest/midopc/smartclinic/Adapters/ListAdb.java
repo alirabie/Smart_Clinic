@@ -1,4 +1,4 @@
-package examplewtest.midopc.smartclinic;
+package examplewtest.midopc.smartclinic.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,14 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.squareup.picasso.Picasso;
-
-import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import examplewtest.midopc.smartclinic.Database.Models.Patient;
+import examplewtest.midopc.smartclinic.Activites.Newpatiant;
+import examplewtest.midopc.smartclinic.Activites.Patiants;
+import examplewtest.midopc.smartclinic.R;
 
 /**
  * Created by Mido PC on 4/12/2016.
@@ -29,7 +26,7 @@ public class ListAdb extends RecyclerView.Adapter<ListAdb.VH> {
     }
 
     int []pics={R.drawable.add,R.drawable.all,R.drawable.stat};
-     String[]lables={"Add New Patient","Patient History","See All Patients"};
+     String[]lables={"Add New Patient","Patients","Blank"};
 
 
     @Override
@@ -50,9 +47,9 @@ public class ListAdb extends RecyclerView.Adapter<ListAdb.VH> {
             @Override
             public void onClick(View v) {
                 if(position==0)
-                    context.startActivity(new Intent(context.getApplicationContext(),Newpatiant.class));
+                    context.startActivity(new Intent(context,Newpatiant.class));
                 if(position==1)
-                    Log.d("gooooooooooooo","all");
+                   context.startActivity(new Intent(context, Patiants.class));
                 if(position==2)
                     Log.d("gooooooooooooo","status");
             }

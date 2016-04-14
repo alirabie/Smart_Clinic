@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="examplewtest.midopc.smartclinic.Newpatiant"
+    tools:context=".Activites.Newpatiant"
     android:orientation="vertical"
     android:background="#e9e9e9">
 
@@ -210,20 +210,12 @@
             android:id="@+id/phonetxt" />
     </LinearLayout>
 
-    <LinearLayout
-        android:orientation="vertical"
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="bottom"
-        android:paddingTop="30dp">
-
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Save"
-            android:id="@+id/savebtn"
-            android:gravity="center|bottom" />
-    </LinearLayout>
+        android:id="@+id/savebtn"
+        android:src="@drawable/save"
+        android:padding="10dp" />
 
 
 </LinearLayout>
