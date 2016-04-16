@@ -23,7 +23,10 @@
             android:label="@string/title_activity_newpatiant"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Activites.Patiants" />
-        <activity android:name=".PatiantProfile"></activity>
+        <activity
+            android:name=".Status"
+            android:label="@string/title_activity_patient__profile"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

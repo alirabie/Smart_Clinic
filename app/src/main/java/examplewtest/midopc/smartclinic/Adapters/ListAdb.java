@@ -41,8 +41,8 @@ public class ListAdb extends RecyclerView.Adapter<ListAdb.VH> {
 
         holder.lable.setText(lables[position]);
         holder.img.setImageResource(pics[position]);
-        holder.img.setBorderWidth(3);
-        holder.img.setBorderColor(R.color.colorPrimary);
+      //  holder.img.setBorderWidth(3);
+   //     holder.img.setBorderColor(R.color.colorborder);
         holder.img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

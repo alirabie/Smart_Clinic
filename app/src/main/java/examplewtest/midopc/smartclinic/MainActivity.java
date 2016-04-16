@@ -9,9 +9,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.List;
+
 import examplewtest.midopc.smartclinic.Adapters.ListAdb;
 import examplewtest.midopc.smartclinic.Database.AppDb;
 import examplewtest.midopc.smartclinic.Database.Models.Patient;
+import examplewtest.midopc.smartclinic.Database.Models.Patient_status;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,32 +32,6 @@ public class MainActivity extends AppCompatActivity {
         final RecyclerView list=(RecyclerView)findViewById(R.id.list);
         list.setLayoutManager(new GridLayoutManager(this, 2));
         list.setAdapter(new ListAdb(this));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

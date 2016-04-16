@@ -10,9 +10,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import examplewtest.midopc.smartclinic.Activites.Patiants;
 import examplewtest.midopc.smartclinic.Database.Models.Patient;
-import examplewtest.midopc.smartclinic.PatiantProfile;
+import examplewtest.midopc.smartclinic.Status;
 import examplewtest.midopc.smartclinic.R;
 
 /**
@@ -37,13 +36,13 @@ public class PatiantsAdb  extends RecyclerView.Adapter<PatiantsAdb.VH2> {
     public void onBindViewHolder(VH2 holder, final int position) {
 
         holder.name.setText(patients.get(position).getFullName());
-        holder.address.setText(patients.get(position).getDate());
+        holder.address.setText(patients.get(position).getAddress());
         holder.id.setText(patients.get(position).getId() + "");
         holder.name.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                context.startActivity(new Intent(context.getApplicationContext(),PatiantProfile.class).putExtra("id", patients.get(position).getId()).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+                context.startActivity(new Intent(context.getApplicationContext(),Status.class).putExtra("id", patients.get(position).getId()).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
             }
         });
 

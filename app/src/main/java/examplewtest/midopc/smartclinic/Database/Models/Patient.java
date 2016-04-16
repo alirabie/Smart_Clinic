@@ -11,6 +11,7 @@ public class Patient {
     private String address;
     private String phoneNum;
     private String date;
+    private String time;
 
 
     public String getDate() {
@@ -67,5 +68,13 @@ public class Patient {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }
