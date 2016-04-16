@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class AppDb extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("Create table IF NOT EXISTS Patients (id INTEGER primary key,full_name TEXT,age INTEGER,gender TEXT,address TEXT,phone_num TEXT)");
+        db.execSQL("Create table IF NOT EXISTS Patients (id INTEGER primary key,full_name TEXT,age INTEGER,gender TEXT,address TEXT,date TEXT,phone_num TEXT)");
 
     }
 
@@ -37,12 +38,19 @@ public class AppDb extends SQLiteOpenHelper {
 
     //Table Patients insertion
     public void insertToPatients(Patient patient){
+        long date = System.currentTimeMillis();
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM MM dd, yyyy");
+        String dateString = sdf.format(date);
+
+
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues contentValues=new ContentValues();
         contentValues.put("full_name",patient.getFullName());
-        contentValues.put("age",patient.getPhoneNum());
+        contentValues.put("age",patient.getAge());
         contentValues.put("address",patient.getAddress());
+        contentValues.put("date",dateString);
         contentValues.put("phone_num", patient.getPhoneNum());
+
         db.insert("Patients", null, contentValues);
 
     }
@@ -61,7 +69,9 @@ public class AppDb extends SQLiteOpenHelper {
             patient.setFullName(cursor.getString(cursor.getColumnIndex("full_name")));
             patient.setAge(cursor.getInt(cursor.getColumnIndex("age")));
             patient.setAddress(cursor.getString(cursor.getColumnIndex("address")));
+            patient.setDate(cursor.getString(cursor.getColumnIndex("date")));
             patient.setPhoneNum(cursor.getString(cursor.getColumnIndex("phone_num")));
+
             patients.add(patient);
             cursor.moveToNext();
         }

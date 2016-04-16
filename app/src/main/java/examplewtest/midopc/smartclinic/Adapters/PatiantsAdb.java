@@ -37,7 +37,7 @@ public class PatiantsAdb  extends RecyclerView.Adapter<PatiantsAdb.VH2> {
     public void onBindViewHolder(VH2 holder, final int position) {
 
         holder.name.setText(patients.get(position).getFullName());
-        holder.address.setText(patients.get(position).getAddress());
+        holder.address.setText(patients.get(position).getDate());
         holder.id.setText(patients.get(position).getId() + "");
         holder.name.setOnClickListener(new View.OnClickListener() {
 
