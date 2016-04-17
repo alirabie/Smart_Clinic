@@ -128,7 +128,7 @@ public class AppDb extends SQLiteOpenHelper {
 
     public void deletePatientByid(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
-        db.execSQL("delete from Patients where id=" + Integer.toHexString(id));
+        db.execSQL("delete from Patients where id=" + Integer.toString(id));
     }
 
     //Update patient Name
@@ -231,6 +231,12 @@ public class AppDb extends SQLiteOpenHelper {
 
         return patient_statuses;
 
+    }
+
+    public void deleteAllStatusforpatient(int id){
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        db.execSQL("delet from Status where p_Id=" + Integer.toString(id));
     }
 
 

@@ -24,39 +24,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
 
 
 
         final RecyclerView list=(RecyclerView)findViewById(R.id.list);
         list.setLayoutManager(new GridLayoutManager(this, 2));
         list.setAdapter(new ListAdb(this));
-
-
-        Patient_status status=new Patient_status();
-
-        status.setBloodPressure("120/80");
-        status.setpId(1);
-        status.setDrug("Zurcal");
-        status.setxRayReq("Arm");
-        status.setDiabetesRate("98");
-        status.setDoctorNotes("good");
-        status.setTemp("37");
-        status.setWeight("60");
-        status.setNextVisit("2/5/2016");
-
-
-
-
-
-
-
-        AppDb db=new AppDb(this);
-        db.insertnewStatus(status);
-
-
-
 
 
 

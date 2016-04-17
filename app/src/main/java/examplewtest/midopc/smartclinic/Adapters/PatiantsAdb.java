@@ -1,6 +1,8 @@
 package examplewtest.midopc.smartclinic.Adapters;
 
 import android.Manifest;
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -12,9 +14,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
+import examplewtest.midopc.smartclinic.Activites.Patiants;
+import examplewtest.midopc.smartclinic.Database.AppDb;
 import examplewtest.midopc.smartclinic.Database.Models.Patient;
 import examplewtest.midopc.smartclinic.Activites.Status;
 import examplewtest.midopc.smartclinic.R;
@@ -26,6 +31,7 @@ public class PatiantsAdb extends RecyclerView.Adapter<PatiantsAdb.VH2> {
 
     private List<Patient> patients;
     private Context context;
+
 
     public PatiantsAdb(List<Patient> patients, Context context) {
         this.patients = patients;
@@ -73,6 +79,21 @@ public class PatiantsAdb extends RecyclerView.Adapter<PatiantsAdb.VH2> {
             }
         });
 
+        holder.remove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                AppDb db=new AppDb(context);
+                db.deletePatientByid(patients.get(position).getId());
+                db.deleteAllStatusforpatient(patients.get(position).getId());
+                Toast.makeText(context.getApplicationContext(),"Patient has been Deleted",Toast.LENGTH_SHORT).show();
+                ((Activity)(context)).finish();
+                context.startActivity(new Intent(context, Patiants.class));
+
+            }
+        });
+
 
 
     }
@@ -86,6 +107,7 @@ public class PatiantsAdb extends RecyclerView.Adapter<PatiantsAdb.VH2> {
 
         TextView name,address,id;
         ImageView call;
+        ImageView remove;
 
 
         public VH2(View itemView) {
@@ -94,6 +116,7 @@ public class PatiantsAdb extends RecyclerView.Adapter<PatiantsAdb.VH2> {
             address=(TextView)itemView.findViewById(R.id.addresstxt22);
             id=(TextView)itemView.findViewById(R.id.idtxt);
             call=(ImageView)itemView.findViewById(R.id.call);
+            remove=(ImageView)itemView.findViewById(R.id.removepatient);
 
         }
     }

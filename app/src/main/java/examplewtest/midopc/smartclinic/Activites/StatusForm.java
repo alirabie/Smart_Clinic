@@ -31,8 +31,7 @@ public class StatusForm extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_status_form);
         final int recivedId = getIntent().getIntExtra("patiaentid", 1);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
 
         //Edit texts
         bloodP=(EditText)findViewById(R.id.Blodform);

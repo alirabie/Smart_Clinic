@@ -26,8 +26,6 @@ public class Status extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_status);
         id= getIntent().getIntExtra("id", 1);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         AppDb appDb = new AppDb(this);
         TextView nametag = (TextView) findViewById(R.id.reportpatientname);
         nametag.setText(appDb.getName(id));
