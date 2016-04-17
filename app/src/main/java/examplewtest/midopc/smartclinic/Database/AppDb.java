@@ -55,11 +55,21 @@ public class AppDb extends SQLiteOpenHelper {
 
 
 
+    //Get Phone Num By Id
+    public String getphonenum(int id){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select phone_num from Patients where id=" + id, null);
+        cursor.moveToFirst();
+        String phoneNum =cursor.getString(cursor.getColumnIndex("full_name"));
+        return phoneNum;
+    }
+
+
+
 
 
 
     //Table Patients insertion
-
     public void insertToPatients(Patient patient) {
         long date = System.currentTimeMillis();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
@@ -166,7 +176,7 @@ public class AppDb extends SQLiteOpenHelper {
 
     public void insertnewStatus(Patient_status patient_status) {
         long date = System.currentTimeMillis();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/mm/yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         String dateString = sdf.format(date);
         long time = System.currentTimeMillis();
         SimpleDateFormat stf = new SimpleDateFormat("hh:mm:ss");

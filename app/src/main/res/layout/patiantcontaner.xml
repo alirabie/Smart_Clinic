@@ -61,6 +61,13 @@
             android:id="@+id/idtxt"
             android:layout_weight="1"
             android:paddingLeft="10dp" />
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/call"
+            android:src="@drawable/call"
+            android:padding="10dp" />
     </LinearLayout>
 
 </LinearLayout>

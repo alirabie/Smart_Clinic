@@ -87,7 +87,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:inputType="number|textPersonName"
             android:ems="10"
             android:id="@+id/agetxt"
             android:padding="6dp"
@@ -165,34 +165,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Date        : "
-            android:gravity="center"
-            android:padding="3dp"
-            android:layout_weight="2" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:padding="6dp"
-            android:background="@drawable/customtextfilde"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:id="@+id/datetxt" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="10dp">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Phone     : "
             android:gravity="center"
             android:padding="3dp"
@@ -201,7 +173,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:inputType="phone|textPersonName"
             android:ems="10"
             android:padding="6dp"
             android:background="@drawable/customtextfilde"
