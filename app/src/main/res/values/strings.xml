@@ -4,4 +4,5 @@
     <string name="title_activity_newpatiant">New patiant</string>
     <string name="title_activity_patient__profile">Status</string>
     <string name="title_activity_status_form">StatusForm</string>
+    <string name="title_activity_splash">Smart Clinic</string>
 </resources>

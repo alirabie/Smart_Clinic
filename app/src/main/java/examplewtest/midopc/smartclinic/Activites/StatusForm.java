@@ -1,5 +1,6 @@
 package examplewtest.midopc.smartclinic.Activites;
 
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -7,9 +8,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import java.util.Calendar;
 
 import examplewtest.midopc.smartclinic.Database.AppDb;
 import examplewtest.midopc.smartclinic.Database.Models.Patient_status;
@@ -43,6 +47,28 @@ public class StatusForm extends AppCompatActivity {
         drug=(EditText)findViewById(R.id.drugform);
         doctornotes=(EditText)findViewById(R.id.notesform);
         nextvisit=(EditText)findViewById(R.id.nextvisitform);
+        nextvisit.setActivated(false);
+        nextvisit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Calendar c = Calendar.getInstance();
+               int mYear = c.get(Calendar.YEAR);
+               int mMonth = c.get(Calendar.MONTH);
+               int  mDay = c.get(Calendar.DAY_OF_MONTH);
+
+
+                DatePickerDialog dpd = new DatePickerDialog(StatusForm.this,new DatePickerDialog.OnDateSetListener() {
+
+                            @Override
+                            public void onDateSet(DatePicker view, int year,int monthOfYear, int dayOfMonth) {
+                                nextvisit.setText(dayOfMonth + "-"+ (monthOfYear + 1) + "-" + year);
+                            }
+                        }, mYear, mMonth, mDay);
+                dpd.show();
+
+
+            }
+        });
 
 
         //Checkboxes

@@ -1,4 +1,4 @@
-package examplewtest.midopc.smartclinic;
+package examplewtest.midopc.smartclinic.Activites;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +15,7 @@ import examplewtest.midopc.smartclinic.Adapters.ListAdb;
 import examplewtest.midopc.smartclinic.Database.AppDb;
 import examplewtest.midopc.smartclinic.Database.Models.Patient;
 import examplewtest.midopc.smartclinic.Database.Models.Patient_status;
+import examplewtest.midopc.smartclinic.R;
 
 public class MainActivity extends AppCompatActivity {
 

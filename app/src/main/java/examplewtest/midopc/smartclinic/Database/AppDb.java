@@ -236,7 +236,7 @@ public class AppDb extends SQLiteOpenHelper {
     public void deleteAllStatusforpatient(int id){
 
         SQLiteDatabase db = this.getReadableDatabase();
-        db.execSQL("delet from Status where p_Id=" + Integer.toString(id));
+        db.execSQL("delete from Status where p_Id=" + Integer.toString(id));
     }
 
 

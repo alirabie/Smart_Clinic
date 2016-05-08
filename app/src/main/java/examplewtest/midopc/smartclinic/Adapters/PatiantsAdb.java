@@ -48,7 +48,7 @@ public class PatiantsAdb extends RecyclerView.Adapter<PatiantsAdb.VH2> {
 
         holder.name.setText(patients.get(position).getFullName());
         holder.address.setText(patients.get(position).getAddress());
-        holder.id.setText(patients.get(position).getId() + "");
+        holder.id.setText(patients.get(position).getAge() + "");
         holder.name.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -84,12 +84,13 @@ public class PatiantsAdb extends RecyclerView.Adapter<PatiantsAdb.VH2> {
             public void onClick(View v) {
 
 
+
                 AppDb db=new AppDb(context);
                 db.deletePatientByid(patients.get(position).getId());
                 db.deleteAllStatusforpatient(patients.get(position).getId());
                 Toast.makeText(context.getApplicationContext(),"Patient has been Deleted",Toast.LENGTH_SHORT).show();
-                ((Activity)(context)).finish();
-                context.startActivity(new Intent(context, Patiants.class));
+                patients.remove(position);
+                notifyItemRemoved(position);
 
             }
         });

@@ -58,7 +58,7 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPersonName"
+            android:inputType="date"
             android:ems="10"
             android:id="@+id/Blodform"
             android:layout_weight="1"
@@ -236,8 +236,8 @@
             android:layout_weight="1"
             android:padding="10dp"
             android:background="@drawable/customtextfilde"
-            android:inputType="numberDecimal"
-            android:id="@+id/otheranalysisform" />
+            android:id="@+id/otheranalysisform"
+            android:inputType="text" />
 
     </LinearLayout>
 
@@ -331,7 +331,8 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Next Visit"
             android:gravity="center"
-            android:padding="10dp" />
+            android:padding="10dp"
+            android:editable="false" />
 
         <EditText
             android:layout_width="match_parent"
